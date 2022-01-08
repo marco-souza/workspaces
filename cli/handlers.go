@@ -2,28 +2,11 @@ package cli
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/marco-souza/workspaces/cmd"
 	"github.com/spf13/cobra"
 )
-
-func rootHandler(command *cobra.Command, args []string) {
-	fmt.Println("Hello from root handler")
-
-	cmd.AddWorkspace("testolino")
-	cmd.AddWorkspace("paeja")
-
-	cmd.ListWorkspaces()
-
-	cmd.RemoveWorkspace("paeja")
-	cmd.ListWorkspaces()
-
-	cmd.RemoveWorkspace("paeja")
-	cmd.ListWorkspaces()
-
-	cmd.OpenWorkspace("paeja")
-	cmd.OpenWorkspace("testolino")
-}
 
 func helpHandler(command *cobra.Command, args []string) {
 	command.Help()
@@ -32,3 +15,22 @@ func helpHandler(command *cobra.Command, args []string) {
 func listWorspaceHandler(command *cobra.Command, args []string) {
 	cmd.ListWorkspaces()
 }
+
+func addWorspaceHandler(command *cobra.Command, args []string) {
+	validatingWorkspaceInArgs(args)
+	cmd.AddWorkspace(args[0])
+}
+
+func removeWorspaceHandler(command *cobra.Command, args []string) {
+	validatingWorkspaceInArgs(args)
+	cmd.RemoveWorkspace(args[0])
+}
+
+func validatingWorkspaceInArgs(args []string) {
+	if len(args) == 0 {
+		fmt.Printf(MISSING_WORKSPACE_TEMPLATE, "remove")
+		os.Exit(0)
+	}
+}
+
+const MISSING_WORKSPACE_TEMPLATE = "You need to specify the workspace to %s\n"

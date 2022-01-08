@@ -33,13 +33,13 @@ func makeWorkspaceCmd() *cobra.Command {
 			Use:     "add",
 			Aliases: []string{"new"},
 			Short:   "add new workspace",
-			Run:     rootHandler,
+			Run:     addWorspaceHandler,
 		},
 		&cobra.Command{
 			Use:     "remove",
 			Aliases: []string{"rm", "r"},
 			Short:   "remove workspace",
-			Run:     rootHandler,
+			Run:     removeWorspaceHandler,
 		},
 	)
 
