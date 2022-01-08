@@ -1,0 +1,13 @@
+#+TITLE: Todo
+* Tasks
+** TODO USBAT manage FS [0/3]
+- [ ] load existend workspaces (to list)
+- [ ] create and delete folders
+- [ ] check if workspace exists
+** TODO USBAT manage repos/projects [0/5]
+- [ ] check if workspace exists before create
+- [ ] CRUD project including remote
+- [ ] integrate with `git`
+- [ ] integrate with package manager (optional)
+** TODO USBAT mange project scripts
+not defined yet
