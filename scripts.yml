@@ -1,0 +1,2 @@
+scripts:
+  ws: go run main.go
