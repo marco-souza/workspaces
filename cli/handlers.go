@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/marco-souza/workspaces/cmd"
+	"github.com/marco-souza/ws/cmd"
 	"github.com/spf13/cobra"
 )
 

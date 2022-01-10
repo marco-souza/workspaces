@@ -1,4 +1,4 @@
-module github.com/marco-souza/workspaces
+module github.com/marco-souza/ws
 
 go 1.17
 

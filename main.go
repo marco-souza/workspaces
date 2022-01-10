@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/marco-souza/workspaces/cli"
+	"github.com/marco-souza/ws/cli"
 )
 
 func main() {
