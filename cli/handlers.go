@@ -26,6 +26,11 @@ func removeWorspaceHandler(command *cobra.Command, args []string) {
 	cmd.RemoveWorkspace(args[0])
 }
 
+func openWorspaceHandler(command *cobra.Command, args []string) {
+	validatingWorkspaceInArgs(args)
+	cmd.OpenWorkspace(args[0])
+}
+
 func validatingWorkspaceInArgs(args []string) {
 	if len(args) == 0 {
 		fmt.Printf(MISSING_WORKSPACE_TEMPLATE, "remove")

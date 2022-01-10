@@ -41,6 +41,12 @@ func makeWorkspaceCmd() *cobra.Command {
 			Short:   "remove workspace",
 			Run:     removeWorspaceHandler,
 		},
+		&cobra.Command{
+			Use:     "open",
+			Aliases: []string{"o"},
+			Short:   "open workspace",
+			Run:     openWorspaceHandler,
+		},
 	)
 
 	return rootCmd
