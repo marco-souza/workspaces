@@ -6,10 +6,10 @@ CLI Workspace Manager written in go.
 
 ```sh
 # install the latest version
-go install github.com/marco-souza/workspaces@latest
+go install github.com/marco-souza/ws@latest
 
 # install an specific version
-go install github.com/marco-souza/workspaces@v0.0.1
+go install github.com/marco-souza/ws@v0.0.1
 ```
 ​
 ## Dev dependencies
