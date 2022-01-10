@@ -1,2 +1,4 @@
 scripts:
   ws: go run main.go
+  fmt: go fmt . && go vet .
+  build: go build -o ws main.go
