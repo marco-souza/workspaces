@@ -2,8 +2,11 @@ package cmd
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"path"
+	"strings"
+	"syscall"
 )
 
 type Project struct {
@@ -90,9 +93,14 @@ func OpenWorkspace(name string) {
 		os.Exit(0)
 	}
 
-	// TODO: change current shell work dir
+	// change current working dir
 	workspacePath := path.Join(ws.Path)
-	fmt.Println("Going to ", workspacePath)
+	if err := os.Chdir(workspacePath); err != nil {
+		log.Fatal(err)
+	}
+
+	shell := os.Getenv("SHELL")
+	sh(shell)
 }
 
 func findWorkspaceByName(name string) *Workspace {
@@ -131,4 +139,14 @@ func fileExists(path string) bool {
 		return false
 	}
 	return true
+}
+
+func sh(cmdString string) {
+	command := strings.Split(cmdString, " ")
+	executable := command[0]
+
+	err := syscall.Exec(executable, command, os.Environ())
+	if err != nil {
+		log.Fatal(err)
+	}
 }

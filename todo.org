@@ -4,10 +4,10 @@
 - [X] load existend workspaces (to list)
 - [X] create and delete folders
 - [X] check if workspace exists
-- [ ] Open workspace folder
-  - load varenvs
-  - add term indicator
-  - open editor
+- [-] Open workspace folder
+  - [X] add term
+  - [ ] load varenvs
+  - [ ] open editor
 * TODO USBAT manage repos/projects [0/5]
 - [ ] check if workspace exists before create
 - [ ] CRUD project including remote
