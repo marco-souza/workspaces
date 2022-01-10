@@ -1,9 +1,13 @@
 #+TITLE: Todo
 
-* TODO USBAT manage FS [0/3]
-- [ ] load existend workspaces (to list)
-- [ ] create and delete folders
-- [ ] check if workspace exists
+* WIP USBAT manage FS [3/4]
+- [X] load existend workspaces (to list)
+- [X] create and delete folders
+- [X] check if workspace exists
+- [ ] Open workspace folder
+  - load varenvs
+  - add term indicator
+  - open editor
 * TODO USBAT manage repos/projects [0/5]
 - [ ] check if workspace exists before create
 - [ ] CRUD project including remote
