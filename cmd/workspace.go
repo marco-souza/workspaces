@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 	"path"
 	"strings"
 	"syscall"
@@ -77,7 +78,7 @@ func RemoveWorkspace(name string) {
 	}
 
 	// delete fs workspace
-	if err := os.Remove(ws.Path); err != nil {
+	if err := os.RemoveAll(ws.Path); err != nil {
 		fmt.Println("😢 Failed deleting workspace", err)
 		os.Exit(1)
 	}
@@ -100,7 +101,13 @@ func OpenWorkspace(name string) {
 	}
 
 	shell := os.Getenv("SHELL")
-	sh(shell)
+
+	cmd := exec.Command(shell)
+	cmd.Stdin = os.Stdin
+	cmd.Stderr = os.Stderr
+	cmd.Stdout = os.Stdout
+	cmd.Env = append(os.Environ(), "WORKSPACE="+workspacePath)
+	cmd.Run()
 }
 
 func findWorkspaceByName(name string) *Workspace {
